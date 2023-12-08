@@ -18,7 +18,7 @@ Item.propTypes = {
   quantity: PropTypes.number,
   detail: PropTypes.string,
   id: PropTypes.string,
-  whenItemClicked: PropTypes.func
+  whenItemClicked: PropTypes.func,
 };
 
 export default Item;

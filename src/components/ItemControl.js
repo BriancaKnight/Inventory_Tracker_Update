@@ -10,7 +10,7 @@ class ItemControl extends React.Component {
     this.state = {
       formVisibleOnPage: false,
       mainItemList: [],
-      selectedItem: null
+      selectedItem: null,
     };
   }
 
@@ -44,17 +44,18 @@ class ItemControl extends React.Component {
   render() {
     let currentlyVisibleState = null;
     let buttonText = null;
-    if (this.state.selectedTicket != null) {
-      currentlyVisibleState = <ItemDetail item={this.state.selectedItem} />
+
+    if (this.state.selectedItem != null) {
+      currentlyVisibleState = <ItemDetail item={this.state.selectedItem} />;
       buttonText = "Return to Shop";
     }
     else if (this.state.formVisibleOnPage) {
-      currentlyVisibleState = <NewItemForm onNewItemCreation={this.handleAddingNewItem} />
-      buttonText = "Return to Shop"
+      currentlyVisibleState = <NewItemForm onNewItemCreation={this.handleAddingNewItem} />;
+      buttonText = "Return to Shop";
     }
     else {
-      currentlyVisibleState = <ItemList itemList={this.state.mainItemList} onTicketSelection={this.handleChangingSelectedItem} />;
-      buttonText = "Add Item to Inventory"
+      currentlyVisibleState = <ItemList itemList={this.state.mainItemList} onItemSelection={this.handleChangingSelectedItem} />;
+      buttonText = "Add Item to Inventory";
     }
     return (
       <React.Fragment>

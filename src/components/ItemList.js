@@ -5,8 +5,9 @@ import PropTypes from 'prop-types';
 function ItemList(props) {
   return (
     <React.Fragment>
-      {props.itemList?.map((item, index) => 
+      {props.itemList?.map((item) => 
       <Item
+      whenItemClicked={props.onItemSelection}
       name={item.name}
       price={item.price}
       quantity={item.quantity}
