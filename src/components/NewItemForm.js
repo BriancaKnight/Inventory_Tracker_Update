@@ -1,5 +1,5 @@
 import React from 'react';
-import ReusableForm from './ReausableForm';
+import ReusableForm from './ReusableForm';
 
 function NewItemForm(props) {
   return (
