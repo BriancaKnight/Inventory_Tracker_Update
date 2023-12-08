@@ -42,4 +42,4 @@ Running tests with Jest using $ npm run test
 
 Also, make sure you update the Technologies Used section of your README, too! There's been a host of new tech that we've used in our projects in this course section.
 
-![App diagram plan](Inventory-Tracker.jpeg)
+![App diagram plan](./src/images/Inventory-Tracker.jpeg)
