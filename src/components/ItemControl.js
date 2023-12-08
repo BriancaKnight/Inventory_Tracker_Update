@@ -11,10 +11,16 @@ class ItemControl extends React.Component {
     };
   }
 
-  render(){
+  render() {
+    let currentlyVisibleState = null;
+    if (this.state.formVisibleOnPage) {
+      currentlyVisibleState = <NewItemForm />
+    } else {
+      currentlyVisibleState = <ItemList />
+    }
     return (
       <React.Fragment>
-
+        {currentlyVisibleState}
       </React.Fragment>
     );
   }
