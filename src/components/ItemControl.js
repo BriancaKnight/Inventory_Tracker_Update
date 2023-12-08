@@ -3,6 +3,8 @@ import NewItemForm from './NewItemForm';
 import ItemList from './ItemList';
 import ItemDetail from './ItemDetail';
 import EditItemForm from './EditItemForm';
+import CoreItems from './CoreItems';
+
 
 class ItemControl extends React.Component {
 
@@ -10,7 +12,7 @@ class ItemControl extends React.Component {
     super(props);
     this.state = {
       formVisibleOnPage: false,
-      mainItemList: [],
+      mainItemList: [...CoreItems],
       selectedItem: null,
       editing: false,
     };

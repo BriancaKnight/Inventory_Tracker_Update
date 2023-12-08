@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 function ItemList(props) {
   return (
     <React.Fragment>
-      {props.itemList?.map((item) => 
+      {[...props.itemList].map((item) => 
       <Item
       whenItemClicked={props.onItemSelection}
       name={item.name}
