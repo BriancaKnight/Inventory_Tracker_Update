@@ -10,6 +10,7 @@ function ItemList(props) {
       name={item.name}
       price={item.price}
       quantity={item.quantity}
+      detail={item.detail}
       id={item.id}
       key={item.id} />
       )}
@@ -19,6 +20,7 @@ function ItemList(props) {
 
 ItemList.propTypes = {
   itemList: PropTypes.array,
+  onItemSelection: PropTypes.func,
 }
 
 export default ItemList;
