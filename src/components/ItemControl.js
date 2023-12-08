@@ -8,6 +8,7 @@ class ItemControl extends React.Component {
     super(props);
     this.state = {
       formVisibleOnPage: false,
+      mainItemList: [],
     };
   }
 
@@ -15,14 +16,22 @@ class ItemControl extends React.Component {
     this.setState(prevState => ({formVisibleOnPage: !prevState.formVisibleOnPage}));
   }
 
+  handleAddingNewItem = (newItem) => {
+    const newMainItemList = this.state.mainItemList.concat(newItem);
+    this.setState({
+      mainItemList: newMainItemList,
+      formVisibleOnPage: false
+    });
+  }
+
   render() {
     let currentlyVisibleState = null;
     let buttonText = null;
     if (this.state.formVisibleOnPage) {
-      currentlyVisibleState = <NewItemForm />
+      currentlyVisibleState = <NewItemForm onNewItemCreation={this.handleAddingNewItem} />
       buttonText = "Return to Shop"
     } else {
-      currentlyVisibleState = <ItemList />
+      currentlyVisibleState = <ItemList itemList={this.state.mainItemList} />;
       buttonText = "Add Item to Inventory"
     }
     return (
