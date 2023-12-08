@@ -23,4 +23,4 @@ function ReusableForm(props) {
   );
 }
 
-ReusableForm
+export default ReusableForm;
