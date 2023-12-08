@@ -6,13 +6,14 @@ import ReusableForm from './ReusableForm';
 function NewItemForm(props) {
 
   function handleNewItemFormSubmission(event) {
-  event.preventDefault();
-  props.onNewItemCreation({
-  name: event.target.name.value,
-  price: parseInt(event.target.price.value),
-  quantity: parseInt(event.target.quantity.value),
-  id: v4()
-});
+    event.preventDefault();
+    props.onNewItemCreation({
+      name: event.target.name.value,
+      price: parseInt(event.target.price.value),
+      quantity: parseInt(event.target.quantity.value),
+      description: event.target.description.value,
+      id: v4()
+    });
   }
   return (
     <React.Fragment>

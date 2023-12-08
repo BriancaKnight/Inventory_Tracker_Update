@@ -8,14 +8,16 @@ function ItemDetail(props){
     <React.Fragment>
       <h2>Item Detail</h2>
       <h3>{item.name}</h3>
-      <h4>{item.detail}</h4>
+      <h4>{item.description}</h4>
       <p>${item.price} per oz. {item.quantity} oz. left in inventory.</p>
+      <button onClick={props.onClickingEdit}>Update Item</button> 
     </React.Fragment>
   );
 }
 
 ItemDetail.propTypes = {
   item: PropTypes.object,
+  onClickingEdit: PropTypes.func,
 }
 
 export default ItemDetail;

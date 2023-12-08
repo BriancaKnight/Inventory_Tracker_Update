@@ -1,5 +1,5 @@
 import React from 'react';
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 
 function ReusableForm(props) {
   return (
@@ -19,7 +19,7 @@ function ReusableForm(props) {
           placeholder='Enter quantity in oz' />
         <input
           type='text'
-          name='Description'
+          name='description'
           placeholder='Describe Item' />
         <button type='submit'>{props.buttonText}</button>
       </form>

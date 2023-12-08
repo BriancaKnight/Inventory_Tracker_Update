@@ -12,11 +12,11 @@ function Item(props){
   );
 }
 
-Item.propTypes = {
+Item.propTypes = { 
   name: PropTypes.string,
   price: PropTypes.number,
   quantity: PropTypes.number,
-  detail: PropTypes.string,
+  description: PropTypes.string,
   id: PropTypes.string,
   whenItemClicked: PropTypes.func,
 };

@@ -11,7 +11,7 @@ function ItemList(props) {
       name={item.name}
       price={item.price}
       quantity={item.quantity}
-      detail={item.detail}
+      description={item.description}
       id={item.id}
       key={item.id} />
       )}
