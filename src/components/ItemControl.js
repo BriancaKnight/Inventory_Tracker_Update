@@ -52,15 +52,19 @@ class ItemControl extends React.Component {
   }
 
   handleEditingItemInList = (itemToEdit) => {
-    const editedMainItemList = this.state.mainItemList
-      .filter(item => item.id !== this.state.selectedItem.id)
-      .concat(itemToEdit);
+    const editedMainItemList = this.state.mainItemList.map((item) => {
+    if (item.id === itemToEdit.id) {
+      return itemToEdit;
+    }
+    return item;
+  });
+
     this.setState({
       mainItemList: editedMainItemList,
       editing: false,
       selectedItem: null,
     });
-  }
+  };
 
   render() {
     let currentlyVisibleState = null;
@@ -73,7 +77,8 @@ class ItemControl extends React.Component {
             item={this.state.selectedItem} />
           <EditItemForm
             item={this.state.selectedItem}
-            onEditItem={this.handleEditingItemInList} />
+            onEditItem={this.handleEditingItemInList} 
+            />
         </React.Fragment>
       buttonText = "Return to Shop"
     }
