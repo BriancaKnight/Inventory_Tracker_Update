@@ -4,6 +4,7 @@ import ItemList from './ItemList';
 import ItemDetail from './ItemDetail';
 import EditItemForm from './EditItemForm';
 import CoreItems from './CoreItems';
+import ReusableButton from './ReusableButton';
 
 
 class ItemControl extends React.Component {
@@ -52,8 +53,8 @@ class ItemControl extends React.Component {
 
   handleEditingItemInList = (itemToEdit) => {
     const editedMainItemList = this.state.mainItemList
-    .filter(item => item.id !== this.state.selectedItem.id)
-    .concat(itemToEdit);
+      .filter(item => item.id !== this.state.selectedItem.id)
+      .concat(itemToEdit);
     this.setState({
       mainItemList: editedMainItemList,
       editing: false,
@@ -67,16 +68,27 @@ class ItemControl extends React.Component {
 
     if (this.state.editing) {
       currentlyVisibleState =
-        <EditItemForm
-          item={this.state.selectedItem} 
-          onEditItem = {this.handleEditingItemInList}/>
+        <React.Fragment>
+          <ItemDetail
+            item={this.state.selectedItem} />
+          <EditItemForm
+            item={this.state.selectedItem}
+            onEditItem={this.handleEditingItemInList} />
+        </React.Fragment>
       buttonText = "Return to Shop"
     }
     else if (this.state.selectedItem != null) {
       currentlyVisibleState =
-        <ItemDetail
-          item={this.state.selectedItem}
-          onClickingEdit={this.handleEditClick} />;
+        <React.Fragment>
+          <ItemDetail
+            item={this.state.selectedItem}
+            onClickingEdit={this.handleEditClick}
+          />
+          <ReusableButton
+            onClick={this.handleEditClick}
+            buttonText='Update Item'
+          />
+        </React.Fragment>
       buttonText = "Return to Shop";
     }
     else if (this.state.formVisibleOnPage) {

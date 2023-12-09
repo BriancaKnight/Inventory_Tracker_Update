@@ -2,15 +2,14 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 function ItemDetail(props){
-  const {item} = props;
+  const {item, onClickingEdit} = props;
 
   return (
     <React.Fragment>
-      <h2>Item Detail</h2>
-      <h3>{item.name}</h3>
-      <h4>{item.description}</h4>
-      <p>${item.price} per oz. {item.quantity} oz. left in inventory.</p>
-      <button onClick={props.onClickingEdit}>Update Item</button> 
+      <h2>{item.name} Details</h2>
+      <p>{item.description} 
+      <br></br>${item.price} per oz.
+      <br></br><em>{item.quantity} oz. left in inventory.</em></p>
     </React.Fragment>
   );
 }
