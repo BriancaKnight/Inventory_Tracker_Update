@@ -41,4 +41,6 @@ This application utilizes React to create, update, and read inventory for a Refi
 
 Copyright (c) 2023 Brianca Knight
 
-![App Diagram](Inventory-Tracker.jpeg)
+![App Diagram](src/images/Inventory-Tracker.jpeg)
+
+ 
