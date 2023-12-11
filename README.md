@@ -1,45 +1,44 @@
-# Template Repository
+# Inventory Tracker
 
-#### with __tests__, coverage, jest, .env, .gitignore, lint, cleanwebpack, htmlwebpack 
+#### An app to track inventory utilizing React.
 
-#### By (Your Name Here)
+#### By Brianca Knight
 
 ## Technologies Used
 
-* _List all_
-* _the major technologies_
-* _you used in your project_
-* _here_
+* HTML
+* React
+* Javascript
+* Bootstrap
+* Node Package Manager
+* Webpack
+* CSS
+* JSON
+* Babel
+* ESLint
 
 ## Description
 
+This application utilizes React to create, update, and read inventory for a Refillery retailer. 
+
 ## Setup/Installation Requirements
 
-* _This is a great place_
-* _to list setup instructions_
-* _in a simple_
-* _easy-to-understand_
-* _format_
+### Cloning Instructions
+* Clone this repository to your desktop.
+* Navigate to the top level of the directory. 
+* Install Node.js with `npm install`.
+* To build the webpack run `npm run build`
+* To start the development server run `npm run start`
+* To lint the project run `npm run lint`
 
 ## Known Bugs
 
-* _Any known issues_
-* _should go here_
+* None.
 
 ## License
 
-When you create your template repository, take the time to add thorough installation/setup instructions to your README. This should include information on how to run the project:
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-Installing all packages with $ npm install.
+Copyright (c) 2023 Brianca Knight
 
-Building the project using webpack with $ npm run build
-
-Starting a development server with $ npm run start
-
-Linting JS files in the src folder with $ npm run lint
-
-Running tests with Jest using $ npm run test
-
-Also, make sure you update the Technologies Used section of your README, too! There's been a host of new tech that we've used in our projects in this course section.
-
-![App diagram plan](./src/images/Inventory-Tracker.jpeg)
+![App Diagram](Inventory-Tracker.jpeg)
