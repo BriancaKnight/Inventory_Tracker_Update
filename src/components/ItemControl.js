@@ -3,8 +3,9 @@ import NewItemForm from './NewItemForm';
 import ItemList from './ItemList';
 import ItemDetail from './ItemDetail';
 import EditItemForm from './EditItemForm';
-import CoreItems from './CoreItems';
 import ReusableButton from './ReusableButton';
+import { connect } from 'react-redux';
+import PropTypes from "prop-types";
 
 
 class ItemControl extends React.Component {
@@ -13,7 +14,6 @@ class ItemControl extends React.Component {
     super(props);
     this.state = {
       formVisibleOnPage: false,
-      mainItemList: [...CoreItems],
       selectedItem: null,
       editing: false,
     };
@@ -35,15 +35,22 @@ class ItemControl extends React.Component {
   }
 
   handleAddingNewItem = (newItem) => {
-    const newMainItemList = this.state.mainItemList.concat(newItem);
-    this.setState({
-      mainItemList: newMainItemList,
-      formVisibleOnPage: false
-    });
+    const { dispatch } = this.props;
+    const { name, price, quantity, description, id} = newItem;
+    const action = {
+      type: 'ADD_ITEM',
+      name: name,
+      price: price,
+      quantity: quantity,
+      description: description,
+      id: id
+    }
+    dispatch(action);
+    this.setState({formVisibleOnPage: false})
   }
 
   handleChangingSelectedItem = (id) => {
-    const selectedItem = this.state.mainItemList.find(item => item.id === id);
+    const selectedItem = this.props.mainItemList[id];
     this.setState({ selectedItem: selectedItem });
   }
 
@@ -60,17 +67,20 @@ class ItemControl extends React.Component {
   }
 
   handleEditingItemInList = (itemToEdit) => {
-    const editedMainItemList = this.state.mainItemList.map((item) => {
-    if (item.id === itemToEdit.id) {
-      return itemToEdit;
+    const { dispatch } = this.props;
+    const { name, price, quantity, description, id} = itemToEdit;
+    const action = {
+      type: 'ADD_ITEM',
+      name: name,
+      price: price,
+      quantity: quantity,
+      description: description,
+      id: id
     }
-    return item;
-  });
-
+    dispatch(action);
     this.setState({
-      mainItemList: editedMainItemList,
       editing: false,
-      selectedItem: null,
+      selectedItem: null
     });
   };
 
@@ -114,7 +124,7 @@ class ItemControl extends React.Component {
     else {
       currentlyVisibleState =
         <ItemList
-          itemList={this.state.mainItemList}
+          itemList={this.props.mainItemList}
           onItemSelection={this.handleChangingSelectedItem} />;
       buttonText = "Add Item to Inventory";
     }
@@ -126,5 +136,17 @@ class ItemControl extends React.Component {
     );
   }
 }
+
+ItemControl.propTypes = {
+  mainItemList: PropTypes.object
+};
+
+const mapStateToProps = state => {
+  return {
+    mainItemList: state
+  }
+}
+
+ItemControl = connect(mapStateToProps)(ItemControl);
 
 export default ItemControl;
