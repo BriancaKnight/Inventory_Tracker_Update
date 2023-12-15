@@ -47,6 +47,14 @@ class ItemControl extends React.Component {
     this.setState({ selectedItem: selectedItem });
   }
 
+  updateMainItemList = (itemId, newQuantity) => {
+    this.setState(prevState => ({
+      mainItemList: prevState.mainItemList.map(item =>
+        item.id === itemId ? { ...item, quantity: newQuantity } : item
+      )
+    }));
+  };
+
   handleEditClick = () => {
     this.setState({ editing: true });
   }
@@ -88,6 +96,7 @@ class ItemControl extends React.Component {
           <ItemDetail
             item={this.state.selectedItem}
             onClickingEdit={this.handleEditClick}
+            updateMainItemList={this.updateMainItemList}
           />
           <ReusableButton
             onClick={this.handleEditClick}
