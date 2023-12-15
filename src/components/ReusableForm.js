@@ -1,5 +1,5 @@
 import React from 'react';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 
 function ReusableForm(props) {
   return (
@@ -10,11 +10,11 @@ function ReusableForm(props) {
           name='name'
           placeholder='Item name' />
         <input
-          type='text'
+          type='number'
           name='price'
           placeholder='Enter price per oz' />
         <input
-          type='text'
+          type='number'
           name='quantity'
           placeholder='Enter quantity in oz' />
         <input
@@ -26,5 +26,10 @@ function ReusableForm(props) {
     </React.Fragment>
   );
 }
+
+ReusableForm.propTypes = {
+  formSubmissionHandler: PropTypes.func,
+  buttonText: PropTypes.string
+};
 
 export default ReusableForm;
