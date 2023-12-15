@@ -13,7 +13,6 @@ class ItemControl extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      formVisibleOnPage: false,
       selectedItem: null,
       editing: false,
     };
@@ -22,18 +21,19 @@ class ItemControl extends React.Component {
   handleClick = () => {
     if (this.state.selectedItem != null) {
       this.setState({
-        formVisibleOnPage: false,
         selectedItem: null,
         editing: false
       });
     }
     else {
-      this.setState(prevState => ({
-        formVisibleOnPage: !prevState.formVisibleOnPage,
-      }));
+      const { dispatch } = this.props;
+      const action = {
+        type: 'TOGGLE_FORM'
+      }
+      dispatch(action);
+      };
     }
-  }
-
+  
   handleAddingNewItem = (newItem) => {
     const { dispatch } = this.props;
     const { name, price, quantity, description, id} = newItem;
@@ -46,7 +46,10 @@ class ItemControl extends React.Component {
       id: id
     }
     dispatch(action);
-    this.setState({formVisibleOnPage: false})
+    const action2 = {
+      type: 'TOGGLE_FORM'
+    }
+    dispatch(action2);
   }
 
   handleChangingSelectedItem = (id) => {
@@ -115,7 +118,7 @@ class ItemControl extends React.Component {
         </React.Fragment>
       buttonText = "Return to Shop";
     }
-    else if (this.state.formVisibleOnPage) {
+    else if (this.props.formVisibleOnPage) {
       currentlyVisibleState =
         <NewItemForm
           onNewItemCreation={this.handleAddingNewItem} />;
@@ -137,13 +140,16 @@ class ItemControl extends React.Component {
   }
 }
 
+
 ItemControl.propTypes = {
-  mainItemList: PropTypes.object
+  mainItemList: PropTypes.object,
+  formVisibleOnPage: PropTypes.bool,
 };
 
 const mapStateToProps = state => {
   return {
-    mainItemList: state
+    mainItemList: state,
+    formVisibleOnPage: state.formVisibleOnPage
   }
 }
 
