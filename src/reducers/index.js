@@ -4,8 +4,8 @@ import { combineReducers } from 'redux';
 
 
 const rootReducer = combineReducers({
-  formVisibleOnPage: formVisibleReducer,
-  mainItemList: itemListReducer
+  mainItemList: itemListReducer,
+  formVisibleOnPage: formVisibleReducer
 });
 
 export default rootReducer;

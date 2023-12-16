@@ -2,6 +2,7 @@ import rootReducer from '../../reducers/index';
 import { createStore } from 'redux';
 import formVisibleReducer from '../../reducers/form-visible-reducer';
 import itemListReducer from '../../reducers/item-list-reducer';
+import * as c from './../../actions/ActionTypes';
 
 let store = createStore(rootReducer);
 
@@ -24,7 +25,7 @@ describe("rootReducer", () => {
 
   test('Check that ADD_ITEM action works for itemListReducer and root reducer', () => {
     const action = {
-      type: 'ADD_ITEM',
+      type: c.ADD_ITEM,
       name: 'Super Shampoo',
       price: 1.25,
       quantity: 128,
@@ -37,7 +38,7 @@ describe("rootReducer", () => {
   
   test('Check that TOGGLE_FORM action works for formVisibleReducer and root reducer', () => {
     const action = {
-      type: 'TOGGLE_FORM'
+      type: c.TOGGLE_FORM
     }
     store.dispatch(action);
     expect(store.getState().formVisibleOnPage).toEqual(formVisibleReducer(undefined, action));

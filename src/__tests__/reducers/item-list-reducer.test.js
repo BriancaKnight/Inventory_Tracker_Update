@@ -1,4 +1,5 @@
 import itemListReducer from '../../reducers/item-list-reducer';
+import * as c from './../../actions/ActionTypes';
 
 describe('itemListReducer', () => {
 
@@ -34,7 +35,7 @@ describe('itemListReducer', () => {
   test('Should successfully add new item data to mainItemList', () => {
     const { name, price, quantity, description, id } = itemData;
     action = {
-      type: 'ADD_ITEM',
+      type: c.ADD_ITEM,
       name: name,
       price: price,
       quantity: quantity,
@@ -55,7 +56,7 @@ describe('itemListReducer', () => {
 
   test("Should successfully delete an item", () => {
     action = {
-      type: 'DELETE_ITEM',
+      type: c.DELETE_ITEM,
       id: 1
     };
     expect(itemListReducer(currentState, action)).toEqual({

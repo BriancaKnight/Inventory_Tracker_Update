@@ -6,6 +6,7 @@ import EditItemForm from './EditItemForm';
 import ReusableButton from './ReusableButton';
 import { connect } from 'react-redux';
 import PropTypes from "prop-types";
+import * as a from './../actions';
 
 
 class ItemControl extends React.Component {
@@ -27,9 +28,7 @@ class ItemControl extends React.Component {
     }
     else {
       const { dispatch } = this.props;
-      const action = {
-        type: 'TOGGLE_FORM'
-      }
+      const action = a.toggleForm();
       dispatch(action);
       };
     }
@@ -139,7 +138,6 @@ class ItemControl extends React.Component {
     );
   }
 }
-
 
 ItemControl.propTypes = {
   mainItemList: PropTypes.object,
