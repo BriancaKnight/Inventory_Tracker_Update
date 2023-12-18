@@ -30,24 +30,15 @@ class ItemControl extends React.Component {
       const { dispatch } = this.props;
       const action = a.toggleForm();
       dispatch(action);
-      };
-    }
-  
+    };
+  }
+
   handleAddingNewItem = (newItem) => {
+    console.log('New Item:', newItem); 
     const { dispatch } = this.props;
-    const { name, price, quantity, description, id} = newItem;
-    const action = {
-      type: 'ADD_ITEM',
-      name: name,
-      price: price,
-      quantity: quantity,
-      description: description,
-      id: id
-    }
+    const action = a.addItem(newItem);
     dispatch(action);
-    const action2 = {
-      type: 'TOGGLE_FORM'
-    }
+    const action2 = a.toggleForm();
     dispatch(action2);
   }
 
@@ -70,21 +61,20 @@ class ItemControl extends React.Component {
 
   handleEditingItemInList = (itemToEdit) => {
     const { dispatch } = this.props;
-    const { name, price, quantity, description, id} = itemToEdit;
-    const action = {
-      type: 'ADD_ITEM',
-      name: name,
-      price: price,
-      quantity: quantity,
-      description: description,
-      id: id
-    }
+    const action = a.addItem(itemToEdit);
     dispatch(action);
     this.setState({
       editing: false,
       selectedItem: null
     });
   };
+
+  handleDeletingItem = (id) => {
+    const { dispatch } = this.props;
+    const action = a.deleteItem(id);
+    dispatch(action);
+    this.setState({ selectedTicket: null });
+  }
 
   render() {
     let currentlyVisibleState = null;
@@ -97,8 +87,8 @@ class ItemControl extends React.Component {
             item={this.state.selectedItem} />
           <EditItemForm
             item={this.state.selectedItem}
-            onEditItem={this.handleEditingItemInList} 
-            />
+            onEditItem={this.handleEditingItemInList}
+          />
         </React.Fragment>
       buttonText = "Return to Shop"
     }

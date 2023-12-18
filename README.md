@@ -19,21 +19,23 @@
 
 ## Description
 
-This application utilizes React to create, update, and read inventory for a Refillery retailer. 
+This application utilizes React to create, update, and read inventory for a Refillery retailer. This update utiliizes react to manage state and react-redux for testing. 
 
 ## Setup/Installation Requirements
 
 ### Cloning Instructions
 * Clone this repository to your desktop.
 * Navigate to the top level of the directory. 
-* Install Node.js with `npm install`.
-* To build the webpack run `npm run build`
+* Install Node.js with `npm install`
 * To start the development server run `npm run start`
-* To lint the project run `npm run lint`
+* Install redux and react-redux with `npm install redux@4.2.0 react-redux@8.0.2`
+* To test run `nmp run test`
+
 
 ## Known Bugs
 
-* None.
+* Upon opening the webpage two empty items print to the dom. 
+* There is a bug preventing new items to print to the dom. 
 
 ## License
 

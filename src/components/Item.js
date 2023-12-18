@@ -9,7 +9,6 @@ function Item(props) {
         <p>${props.price} per oz</p>
       </div>
     </React.Fragment>
-
   );
 }
 
@@ -22,4 +21,4 @@ Item.propTypes = {
   whenItemClicked: PropTypes.func,
 };
 
-export default Item;
+export default Item ;
