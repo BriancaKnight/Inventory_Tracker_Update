@@ -34,8 +34,6 @@ This application utilizes React to create, update, and read inventory for a Refi
 
 ## Known Bugs
 
-* Upon opening the webpage two empty items print to the dom. 
-* There is a bug preventing new items to print to the dom. 
 
 ## License
 
