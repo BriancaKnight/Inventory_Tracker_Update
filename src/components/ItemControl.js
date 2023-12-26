@@ -16,6 +16,7 @@ class ItemControl extends React.Component {
     this.state = {
       selectedItem: null,
       editing: false,
+      mainItemList:[],
     };
   }
 
@@ -34,7 +35,7 @@ class ItemControl extends React.Component {
   }
 
   handleAddingNewItem = (newItem) => {
-    console.log('New Item:', newItem); 
+    console.log('New Item:', newItem);
     const { dispatch } = this.props;
     const action = a.addItem(newItem);
     dispatch(action);
@@ -47,12 +48,14 @@ class ItemControl extends React.Component {
     this.setState({ selectedItem: selectedItem });
   }
 
-  updateMainItemList = (itemId, newQuantity) => {
-    this.setState(prevState => ({
-      mainItemList: prevState.mainItemList.map(item =>
-        item.id === itemId ? { ...item, quantity: newQuantity } : item
-      )
-    }));
+updateMainItemList = (itemId, newQuantity) => {
+    console.log("HIT UPDATE", this.state);
+    const { dispatch, mainItemList } = this.props;
+    const action = a.addItem({
+      ...mainItemList[itemId],
+       quantity: newQuantity,
+    });
+    dispatch(action);
   };
 
   handleEditClick = () => {
@@ -60,6 +63,7 @@ class ItemControl extends React.Component {
   }
 
   handleEditingItemInList = (itemToEdit) => {
+    console.log("HIT HANDLE EDIT");
     const { dispatch } = this.props;
     const action = a.addItem(itemToEdit);
     dispatch(action);
@@ -136,7 +140,7 @@ ItemControl.propTypes = {
 
 const mapStateToProps = state => {
   return {
-    mainItemList: state,
+    mainItemList: state.mainItemList,
     formVisibleOnPage: state.formVisibleOnPage
   }
 }
