@@ -33,7 +33,7 @@ This application utilizes React to create, update, and read inventory for a Refi
 
 
 ## Known Bugs
-
+* None.
 
 ## License
 

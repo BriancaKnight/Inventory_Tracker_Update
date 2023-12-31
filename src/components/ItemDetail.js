@@ -24,7 +24,7 @@ const notEnoughStock = itemQuantity < 10
       <p>{item.description} 
       <br></br>${item.price} per oz.
       <br></br><em>{itemQuantity} oz. left in inventory.</em></p>
-      {itemQuantity < 10 && <p>Sorry! We don't have enough stock to sell you that!</p>}
+      {itemQuantity < 10 && <p>Sorry! We don't have 10 oz left in stock! </p>}
       <ReusableButton
        onClick={handleBuy}
         buttonText='Buy 10 oz' 

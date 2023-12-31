@@ -35,7 +35,6 @@ class ItemControl extends React.Component {
   }
 
   handleAddingNewItem = (newItem) => {
-    console.log('New Item:', newItem);
     const { dispatch } = this.props;
     const action = a.addItem(newItem);
     dispatch(action);
@@ -49,7 +48,6 @@ class ItemControl extends React.Component {
   }
 
 updateMainItemList = (itemId, newQuantity) => {
-    console.log("HIT UPDATE", this.state);
     const { dispatch, mainItemList } = this.props;
     const action = a.addItem({
       ...mainItemList[itemId],
@@ -63,7 +61,6 @@ updateMainItemList = (itemId, newQuantity) => {
   }
 
   handleEditingItemInList = (itemToEdit) => {
-    console.log("HIT HANDLE EDIT");
     const { dispatch } = this.props;
     const action = a.addItem(itemToEdit);
     dispatch(action);
